@@ -11,8 +11,8 @@ node {
 		git 'https://github.com/manjunathkonda/microservices-node-example-todo-frontend.git'
 	}
 	stage('Build') {
-		sh 'sudo apt npm install'
-		sh 'sudo apt npm run bowerInstall'
+		sh 'npm install'
+		sh 'npm run bowerInstall'
 	}
 	stage('Test') {
 		sh 'npm test'
