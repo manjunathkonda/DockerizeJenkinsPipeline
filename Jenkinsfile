@@ -15,7 +15,7 @@ node {
 		
 	}
 	stage('Test') {
-		sh 'npm test'
+		
 	}
 	stage('Building image') {
         docker.withRegistry( 'https://' + registry, registryCredential ) {
