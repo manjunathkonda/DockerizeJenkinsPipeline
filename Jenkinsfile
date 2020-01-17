@@ -12,7 +12,7 @@ node {
 	}
 	stage('Build') {
 		sh 'npm install'
-		sh 'npm run bowerInstall'
+		
 	}
 	stage('Test') {
 		sh 'npm test'
