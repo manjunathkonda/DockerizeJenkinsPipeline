@@ -18,14 +18,14 @@ node {
 		
 	}
 	stage('Building image') {
-        docker.withRegistry( 'https://' + registry, registryCredential ) {
+        docker.withRegistry( 'https://hub.docker.com/repository/docker/' + registry, registryCredential ) {
 		    def buildName = registry + ":$BUILD_NUMBER"
 			newApp = docker.build buildName
 			newApp.push()
         }
 	}
 	stage('Registring image') {
-        docker.withRegistry( 'https://' + registry, registryCredential ) {
+        docker.withRegistry( 'https://hub.docker.com/repository/docker/' + registry, registryCredential ) {
     		newApp.push 'latest2'
         }
 	}
