@@ -15,7 +15,7 @@ node {
 		
 	}
 	stage('Test') {
-		
+		sh 'docker images'
 	}
 	stage('Building image') {
 		 script {
@@ -32,7 +32,6 @@ node {
 	}
     stage('Removing image') {
         sh "docker rmi $registry:$BUILD_NUMBER"
-        sh "docker rmi $registry:latest"
-    }
+           }
     
 }
