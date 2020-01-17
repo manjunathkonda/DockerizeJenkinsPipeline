@@ -18,8 +18,10 @@ node {
 		
 	}
 	stage('Building image') {
+		 script {
          newApp = docker.build registry + ":$BUILD_NUMBER"
-        }
+		 }
+        
 	}
 	stage('Registring image') {
         docker.withRegistry( 'https://' + registry, registryCredential ) {
