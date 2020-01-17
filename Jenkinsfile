@@ -1,7 +1,5 @@
 node {
     
-	
-
     env.AWS_ECR_LOGIN=true
     def newApp
     def registry = 'manjunathkonda/dockerize-jenkins'
@@ -30,7 +28,7 @@ node {
           }
         }
 	}
-    stage('Removing image') {
+    stage('Removing unwanted image') {
         sh "docker rmi $registry:$BUILD_NUMBER"
            }
     
