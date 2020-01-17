@@ -23,9 +23,11 @@ node {
 		 }
         
 	}
-	stage('Registring image') {
-        docker.withRegistry( 'https://' + registry, registryCredential ) {
-    		newApp.push 'latest2'
+	stage('Deploying image') {
+		script {
+          docker.withRegistry( '', registryCredential ) {
+            newApp.push()
+          }
         }
 	}
     stage('Removing image') {
